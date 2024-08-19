@@ -1,0 +1,5 @@
+# Godot 4+ specific ignores
+.godot/
+Graphics/
+icon.svg
+icon.svg.import
