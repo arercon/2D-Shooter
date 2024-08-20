@@ -10,10 +10,11 @@ radius = 64.0
 script = ExtResource("1_1s6cc")
 
 [node name="PlayerImage" type="Sprite2D" parent="."]
+rotation = 1.5708
 texture = ExtResource("1_sbxoh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 34)
+position = Vector2(-36, -3)
 shape = SubResource("CircleShape2D_uktck")
 
 [node name="Lasertimer" type="Timer" parent="."]
@@ -25,16 +26,17 @@ wait_time = 2.0
 one_shot = true
 
 [node name="LaserStartPositions" type="Node2D" parent="."]
-position = Vector2(-43, -116)
+position = Vector2(112, -28)
+rotation = 1.5708
 
 [node name="Marker2D" type="Marker2D" parent="LaserStartPositions"]
-position = Vector2(55, 33)
+position = Vector2(40, 26)
 
 [node name="Marker2D2" type="Marker2D" parent="LaserStartPositions"]
-position = Vector2(62, 28)
+position = Vector2(47, 22)
 
 [node name="Marker2D3" type="Marker2D" parent="LaserStartPositions"]
-position = Vector2(69, 33)
+position = Vector2(56, 26)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="timeout" from="Lasertimer" to="." method="_on_lasertimer_timeout"]
