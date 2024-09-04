@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://chtxs3v3yk6un"]
+[gd_scene load_steps=19 format=4 uid="uid://chtxs3v3yk6un"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_moxon"]
 [ext_resource type="Texture2D" uid="uid://b5rmp05odfiex" path="res://graphics/ground/stones.png" id="2_2ml5d"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c0goum3ieehdg" path="res://graphics/tilesets/outside_walls.png" id="9_dlyoc"]
 [ext_resource type="Texture2D" uid="uid://cou7vsmllndmb" path="res://graphics/tilesets/soil.png" id="10_hd5ib"]
 [ext_resource type="PackedScene" uid="uid://dm48xmnank0h0" path="res://scenes/houses/house.tscn" id="13_d34lp"]
+[ext_resource type="PackedScene" uid="uid://cayu13tp1v7f2" path="res://scenes/objects/steam_vent.tscn" id="14_lf8cn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_skst4"]
 texture = ExtResource("10_hd5ib")
@@ -105,8 +106,11 @@ texture = ExtResource("8_0gil6")
 position = Vector2(488, -574)
 
 [node name="Area2D" parent="." instance=ExtResource("13_d34lp")]
-position = Vector2(-1273, 2187)
+position = Vector2(-1380, 2240)
 rotation = -0.80342
+
+[node name="SteamVent" parent="." instance=ExtResource("14_lf8cn")]
+position = Vector2(-182, 678)
 
 [node name="Player" parent="." instance=ExtResource("4_7sft8")]
 position = Vector2(537, 526)
@@ -116,6 +120,11 @@ zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 
 [node name="Projectiles" type="Node2D" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.45175, 0.523469, 0.29425, 1)
+energy = 0.9
+blend_mode = 1
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="player_exited_gate" from="Gate" to="." method="_on_gate_player_exited_gate"]
