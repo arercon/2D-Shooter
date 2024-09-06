@@ -7,6 +7,8 @@
 polygon = PackedVector2Array(-213, 43, -212, -10, -221, -16, -225, -8, -228, 0, -229, 33, -225, 41, -221, 48)
 
 [node name="WallLight" type="Area2D"]
+collision_layer = 4
+collision_mask = 11
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-395, 68, -419, 15, -376, -43, -342, -67, -299, -82, -283, -84, 275, -84, 276, -80, 286, -82, 309, -79, 343, -64, 371, -45, 415, 12, 395, 66, 375, 72, 263, 75, 239, 78, 223, 73, -229, 72, -238, 78, -255, 77, -262, 70)
@@ -30,5 +32,3 @@ occluder = SubResource("OccluderPolygon2D_fpdkn")
 position = Vector2(-4, 0)
 scale = Vector2(-1, 1)
 occluder = SubResource("OccluderPolygon2D_fpdkn")
-
-[node name="LightOccluder2D3" type="LightOccluder2D" parent="."]

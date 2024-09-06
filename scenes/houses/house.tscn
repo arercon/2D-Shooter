@@ -1,5 +1,6 @@
-[gd_scene load_steps=39 format=4 uid="uid://dm48xmnank0h0"]
+[gd_scene load_steps=40 format=4 uid="uid://dm48xmnank0h0"]
 
+[ext_resource type="Script" path="res://scenes/houses/house.gd" id="1_eppps"]
 [ext_resource type="PackedScene" uid="uid://dyl0lgb5dmrys" path="res://scenes/objects/simple_light.tscn" id="2_kw34g"]
 [ext_resource type="Texture2D" uid="uid://cu0b0vyf0bbhw" path="res://graphics/tilesets/interior.png" id="3_bq4u0"]
 [ext_resource type="PackedScene" uid="uid://ctul5yqqyqb8w" path="res://scenes/objects/wall_light.tscn" id="3_tcl2j"]
@@ -308,8 +309,8 @@ sources/0 = SubResource("TileSetAtlasSource_kxs1s")
 size = Vector2(3264, 2489)
 
 [node name="House" type="Area2D"]
-collision_layer = 4
-collision_mask = 11
+collision_layer = 16
+script = ExtResource("1_eppps")
 
 [node name="Floor" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD+//7/AgABAAEAAAD///7/AgABAAEAAAAAAP7/AgABAAEAAAABAP7/AgABAAEAAAABAP//AgABAAEAAAAAAP//AgABAAEAAAAAAAAAAgABAAEAAAD//wAAAgABAAEAAAD/////AgABAAEAAAD+////AgABAAEAAAD+/wEAAgABAAEAAAD+/wAAAgABAAEAAAABAAAAAgABAAEAAAABAAEAAgABAAEAAAABAAIAAgABAAEAAAAAAAIAAgABAAEAAAAAAAEAAgABAAEAAAD//wEAAgABAAEAAAD+/wIAAgABAAEAAAD//wIAAgABAAEAAAD9/wIAAgABAAEAAAD8/wIAAgABAAEAAAD8/wEAAgABAAEAAAD9/wEAAgABAAEAAAD9/wAAAgABAAEAAAD9////AgABAAEAAAD9//7/AgABAAEAAAD8//7/AgABAAEAAAD8////AgABAAEAAAD8/wAAAgABAAEAAAACAP7/AgABAAEAAAACAP//AgABAAEAAAACAAAAAgABAAEAAAACAAEAAgABAAEAAAACAAIAAgABAAEAAAD7//3/AgAAAAAAAAD7//7/AgAAAAEAAAD7////AgAAAAEAAAD7/wAAAgAAAAEAAAD7/wEAAgAAAAEAAAD7/wIAAgAAAAEAAAD8/wMAAgABAAIAAAD9/wMAAgABAAIAAAD+/wMAAgABAAIAAAD//wMAAgABAAIAAAAAAAMAAgABAAIAAAABAAMAAgABAAIAAAACAAMAAgABAAIAAAADAAIAAgACAAEAAAADAAEAAgACAAEAAAADAAAAAgACAAEAAAADAP//AgACAAEAAAADAP7/AgACAAEAAAD8//3/AgABAAAAAAD9//3/AgABAAAAAAD+//3/AgABAAAAAAD///3/AgABAAAAAAAAAP3/AgABAAAAAAABAP3/AgABAAAAAAACAP3/AgABAAAAAAADAP3/AgACAAAAAAADAAMAAgACAAIAAAD7/wMAAgAAAAIAAAA=")
@@ -351,3 +352,6 @@ metadata/_edit_lock_ = true
 [node name="SimpleLight" parent="." instance=ExtResource("2_kw34g")]
 position = Vector2(861, -897)
 metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
