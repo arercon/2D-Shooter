@@ -13,6 +13,10 @@ func _process(_delta):
 	velocity = direction * 400
 	
 	move_and_slide()
+
+
+func hit():
+	print(\"damage\")
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o4rtv"]
