@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://d1n3b2rrnh0ik"]
+[gd_scene load_steps=14 format=4 uid="uid://d1n3b2rrnh0ik"]
 
 [ext_resource type="PackedScene" uid="uid://chtxs3v3yk6un" path="res://scenes/levels/level.tscn" id="1_msk72"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_65bnb"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dugasiwf1xqeo" path="res://graphics/lights/textures/circle.png" id="7_oca6r"]
 [ext_resource type="Texture2D" uid="uid://cp2px1lage3pe" path="res://graphics/lights/overlays/infrastructure.png" id="8_6ab5o"]
 [ext_resource type="Texture2D" uid="uid://cdrgmdim6xtwk" path="res://graphics/lights/overlays/lattice.png" id="9_14erm"]
+[ext_resource type="PackedScene" uid="uid://cqmqgyiyyklby" path="res://items/item.tscn" id="12_lw0my"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uo1g3"]
 size = Vector2(1118, 560.5)
@@ -29,6 +30,7 @@ tile_set = ExtResource("3_8bf82")
 [node name="InnerWalls" type="TileMapLayer" parent="Ground" index="2"]
 tile_map_data = PackedByteArray("AAD6/wQAAAABAAYAAAD6/wMAAAABAAYAAAD6/wIAAAABAAYAAAD6/wAAAAABAAYAAAD6////AAABAAYAAAD6//7/AAABAAYAAAD5/+7/AAADAAcAAAD5/+//AAAAAAgAAAD6/+//AAAAAAYAAAD7/+//AAAAAAYAAAD4/+7/AAAAAAYAAAD3/+7/AAAAAAYAAAD2/+7/AAAAAAYAAAD1/+7/AAAAAAYAAAD5/+3/AAACAAgAAAAEAP7/AAABAAcAAAD8//7/AAAAAAcAAAD8/wIAAAABAAYAAAD8/wMAAAABAAYAAAD8/wQAAAAAAAgAAAD8////AAABAAYAAAAEAP//AAABAAYAAAAEAAMAAAABAAYAAAAEAAQAAAABAAgAAAAEAAIAAAABAAYAAAD9/wQAAAAAAAYAAAADAAQAAAAAAAYAAAACAAQAAAAAAAYAAAD+/wQAAAAAAAYAAAD9//7/AAAAAAYAAAADAP7/AAAAAAYAAAACAP7/AAAAAAYAAAD+//7/AAAAAAYAAAACAAAAAAABAAcAAAACAAIAAAABAAgAAAD//wIAAAAAAAgAAAD//wAAAAAAAAcAAAD+////AAAAAAcAAAD+/wMAAAAAAAgAAAADAP//AAABAAcAAAADAAMAAAABAAgAAAD7//T/AAAAAAYAAAD8//T/AAAAAAYAAAD9//T/AAACAAcAAAD+//T/AAAAAAYAAAD///T/AAAAAAYAAAABAPT/AAAAAAYAAAACAPT/AAACAAcAAAADAPT/AAAAAAYAAAAEAPT/AAAAAAYAAAD6//T/AAAAAAcAAAD7//b/AAAAAAYAAAD9//b/AAADAAcAAAD6//b/AAAAAAgAAAD6//X/AAABAAYAAAD9//f/AAACAAgAAAAFAPX/AAABAAYAAAAFAPb/AAABAAYAAAAFAPf/AAABAAYAAAAFAPT/AAABAAcAAAACAPb/AAADAAYAAAACAPX/AAABAAYAAAADAPb/AAAAAAYAAAA=")
 tile_set = ExtResource("2_kf0xm")
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." index="2"]
 position = Vector2(217, 2965)
@@ -38,6 +40,7 @@ texture = ExtResource("7_oca6r")
 texture_scale = 3.0
 
 [node name="Lights" type="Node2D" parent="." index="3"]
+metadata/_edit_lock_ = true
 
 [node name="WallLights" type="Node2D" parent="Lights" index="0"]
 metadata/_edit_lock_ = true
@@ -155,5 +158,7 @@ blend_mode = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
 position = Vector2(202, 3426)
 shape = SubResource("RectangleShape2D_uo1g3")
+
+[node name="Item" parent="." index="7" instance=ExtResource("12_lw0my")]
 
 [connection signal="body_entered" from="ExitGateArea" to="." method="_on_exit_gate_area_body_entered"]
