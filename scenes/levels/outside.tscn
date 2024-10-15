@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://bp506d5xvaypd"]
+[gd_scene load_steps=20 format=4 uid="uid://bp506d5xvaypd"]
 
 [ext_resource type="PackedScene" uid="uid://chtxs3v3yk6un" path="res://scenes/levels/level.tscn" id="1_1xeef"]
 [ext_resource type="Script" path="res://scenes/levels/outside.gd" id="2_eyc1q"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://dm48xmnank0h0" path="res://scenes/houses/house.tscn" id="12_20lk4"]
 [ext_resource type="PackedScene" uid="uid://yxkgpdykk3lo" path="res://scenes/objects/light_fan_animation.tscn" id="13_2vryx"]
 [ext_resource type="PackedScene" uid="uid://4b7hwocbvw02" path="res://scenes/objects/gate.tscn" id="14_e76r0"]
-[ext_resource type="PackedScene" uid="uid://cqmqgyiyyklby" path="res://items/item.tscn" id="16_h1idx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ip2ed"]
 texture = ExtResource("6_yttnd")
@@ -54,6 +53,10 @@ sources/0 = SubResource("TileSetAtlasSource_xntoy")
 
 [node name="Outside" instance=ExtResource("1_1xeef")]
 script = ExtResource("2_eyc1q")
+
+[node name="Gate" parent="." index="1" instance=ExtResource("14_e76r0")]
+z_index = 1
+position = Vector2(577, -792)
 
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
@@ -115,14 +118,9 @@ scale = Vector2(0.768, 0.768)
 autoplay = "default"
 frame_progress = 0.132778
 
-[node name="Gate" parent="." index="1" instance=ExtResource("14_e76r0")]
-position = Vector2(577, -792)
-
-[node name="Player" parent="." index="3"]
+[node name="Player" parent="." index="5"]
 position = Vector2(669, 206)
-max_speed = 500
-
-[node name="Item" parent="." index="5" instance=ExtResource("16_h1idx")]
-position = Vector2(599, 501)
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
+[connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
+[connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
