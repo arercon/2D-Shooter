@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bp506d5xvaypd"]
+[gd_scene load_steps=21 format=4 uid="uid://bp506d5xvaypd"]
 
 [ext_resource type="PackedScene" uid="uid://chtxs3v3yk6un" path="res://scenes/levels/level.tscn" id="1_1xeef"]
 [ext_resource type="Script" path="res://scenes/levels/outside.gd" id="2_eyc1q"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dm48xmnank0h0" path="res://scenes/houses/house.tscn" id="12_20lk4"]
 [ext_resource type="PackedScene" uid="uid://yxkgpdykk3lo" path="res://scenes/objects/light_fan_animation.tscn" id="13_2vryx"]
 [ext_resource type="PackedScene" uid="uid://4b7hwocbvw02" path="res://scenes/objects/gate.tscn" id="14_e76r0"]
+[ext_resource type="PackedScene" uid="uid://b5b1rtwx7k03j" path="res://scenes/enemies/scout.tscn" id="16_vsnk4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ip2ed"]
 texture = ExtResource("6_yttnd")
@@ -118,7 +119,10 @@ scale = Vector2(0.768, 0.768)
 autoplay = "default"
 frame_progress = 0.132778
 
-[node name="Player" parent="." index="5"]
+[node name="Scout" parent="Enemies" index="0" instance=ExtResource("16_vsnk4")]
+position = Vector2(1057, 711)
+
+[node name="Player" parent="." index="7"]
 position = Vector2(669, 206)
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
