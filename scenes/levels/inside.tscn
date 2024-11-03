@@ -526,7 +526,7 @@ shape = SubResource("RectangleShape2D_uo1g3")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="Player" parent="." index="8"]
+[node name="Player" parent="." index="9"]
 position = Vector2(217, 2965)
 metadata/_edit_group_ = true
 
