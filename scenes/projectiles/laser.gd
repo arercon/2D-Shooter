@@ -10,7 +10,7 @@ func _process(delta):
 	position += direction * laser_speed * delta
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D):
 	#if body.has_method("hit"):
 	if "hit" in body:
 		body.hit()

@@ -120,7 +120,7 @@ autoplay = "default"
 frame_progress = 0.132778
 
 [node name="Scout" parent="Enemies" index="0" instance=ExtResource("16_vsnk4")]
-position = Vector2(1057, 711)
+position = Vector2(1480, 698)
 
 [node name="Player" parent="." index="7"]
 position = Vector2(669, 206)
