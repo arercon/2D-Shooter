@@ -6,7 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f8pgn"]
 shader = ExtResource("2_ayxci")
-shader_parameter/color = Color(0.788465, 0.974371, 0.956274, 1)
+shader_parameter/damage_color = Color(1, 1, 1, 1)
 shader_parameter/progress = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y0pny"]
