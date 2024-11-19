@@ -1,36 +1,224 @@
-[gd_scene load_steps=4 format=3 uid="uid://by3v6fnjf5qqm"]
+[gd_scene load_steps=11 format=3 uid="uid://by3v6fnjf5qqm"]
 
 [ext_resource type="Texture2D" uid="uid://bnjk46a5v25ds" path="res://graphics/enemies/drone.png" id="1_3enxk"]
+[ext_resource type="Shader" path="res://scenes/enemies/drone/drone.gdshader" id="1_rbiyy"]
+[ext_resource type="Texture2D" uid="uid://bxd1ew8fot75h" path="res://graphics/explosions/explosion_3.png" id="2_3pw1x"]
 
 [sub_resource type="GDScript" id="GDScript_fbpnf"]
 script/source = "extends CharacterBody2D
 
+var active: bool = false
+var max_speed: int = 600
+var speed: int = 0
+var speed_multiplier: int = 1
 
-func _process(_delta):
-	#direction
-	var direction = Vector2.RIGHT
-	# velocity
-	velocity = direction * 400
-	
-	move_and_slide()
+var vulnerable: bool = true
+var health: int = 50
 
+var explosion_active: bool = false
 
+func _ready() -> void:
+	$Explosion.hide()
+	$Sprite2D.show()
+
+func _process(delta):
+	if active:
+		look_at(Globals.player_pos)
+		var direction = (Globals.player_pos - position).normalized()
+		velocity = direction * speed * speed_multiplier
+		var collision = move_and_collide(velocity * delta)
+		if collision:
+			$AnimationPlayer.play(\"explosion\")
+			explosion_active = true
+	if explosion_active:
+		var targets = get_tree().get_nodes_in_group(\"Container\") + get_tree().get_nodes_in_group(\"Entity\")
+		for target in targets:
+			var in_range = target.global_position.distance_to(global_position) < 400 
+			if in_range and \"hit\" in target:
+				target.hit()
+		
+		
 func hit():
-	print(\"damage\")
+	if vulnerable:
+		health -= 10
+		vulnerable = false
+		$Sprite2D.material.set_shader_parameter(\"progress\",1)
+		$HitTimer.start()
+	if health <= 0:
+		$AnimationPlayer.play(\"explosion\")
+		explosion_active = true
+
+func stop_movement():
+	speed_multiplier = 0
+
+func _on_notice_area_body_entered(_body: Node2D) -> void:
+	active = true
+	var tween = create_tween()
+	tween.tween_property(self, \"speed\", max_speed, 6)
+
+
+func _on_hit_timer_timeout() -> void:
+	vulnerable = true
+	$Sprite2D.material.set_shader_parameter(\"progress\",0)
 "
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6qsda"]
+shader = ExtResource("1_rbiyy")
+shader_parameter/damage_color = Color(1, 1, 1, 1)
+shader_parameter/progress = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o4rtv"]
 radius = 75.0267
 
-[node name="Drone" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_mg1v3"]
+radius = 1421.0
+
+[sub_resource type="Animation" id="Animation_gwuia"]
+resource_name = "explosion"
+length = 1.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Explosion:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Explosion:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.05, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.55),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stop_movement"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_m7hee"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Explosion:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [26]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Explosion:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fjnr8"]
+_data = {
+"RESET": SubResource("Animation_m7hee"),
+"explosion": SubResource("Animation_gwuia")
+}
+
+[node name="Drone" type="CharacterBody2D" groups=["Entity"]]
 collision_layer = 2
 collision_mask = 15
 script = SubResource("GDScript_fbpnf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(216, 196)
+material = SubResource("ShaderMaterial_6qsda")
+rotation = 1.5708
 texture = ExtResource("1_3enxk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(215, 202)
 shape = SubResource("CircleShape2D_o4rtv")
+
+[node name="NoticeArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]
+shape = SubResource("CircleShape2D_mg1v3")
+
+[node name="HitTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="Explosion" type="Sprite2D" parent="."]
+texture = ExtResource("2_3pw1x")
+hframes = 8
+vframes = 8
+frame = 26
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fjnr8")
+}
+
+[connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
+[connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
