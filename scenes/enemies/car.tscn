@@ -1,54 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://d064022j108ns"]
+[gd_scene load_steps=9 format=3 uid="uid://d064022j108ns"]
 
 [ext_resource type="Script" path="res://scenes/enemies/car.gd" id="1_vv2v1"]
 [ext_resource type="Texture2D" uid="uid://bujcwkounqxsx" path="res://graphics/car/main.png" id="2_4l05m"]
 [ext_resource type="Texture2D" uid="uid://dx5ua1w7ewoxw" path="res://graphics/car/turret.png" id="3_rlrpw"]
+[ext_resource type="Texture2D" uid="uid://1whecb2laiv8" path="res://graphics/explosions/gun.png" id="4_tuj5u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uoiy3"]
-radius = 646.003
-
-[sub_resource type="Animation" id="Animation_5fdfj"]
-resource_name = "laser_load"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Turret/RayCast2D/Line2D:width")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 1, 1.9, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 10.0, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Turret/RayCast2D2/Line2D:width")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.1, 1, 1.9, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 10.0, 0.0]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1.9),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"fire"
-}]
-}
+radius = 853.009
 
 [sub_resource type="Animation" id="Animation_ld4sf"]
 length = 0.001
@@ -77,6 +35,49 @@ tracks/1/keys = {
 "values": [1.0]
 }
 
+[sub_resource type="Animation" id="Animation_5fdfj"]
+resource_name = "laser_load"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Turret/RayCast2D/Line2D:width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 10.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Turret/RayCast2D2/Line2D:width")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 10.0, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8hhxx"]
 _data = {
 "RESET": SubResource("Animation_ld4sf"),
@@ -87,6 +88,7 @@ _data = {
 script = ExtResource("1_vv2v1")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
 polygon = PackedVector2Array(1, -137, 68, -165, 126, -175, 170, -168, 206, -162, 232, -118, 242, -92, 246, -23, 246, 67, 246, 89, 231, 120, 206, 160, 118, 173, 63, 166, 6, 131, -37, 175, -100, 183, -168, 173, -175, 132, -170, 77, -237, 35, -237, -35, -170, -81, -176, -137, -169, -171, -99, -184, -39, -169)
@@ -97,6 +99,7 @@ rotation = 1.5708
 texture = ExtResource("2_4l05m")
 
 [node name="NoticeArea" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]
 shape = SubResource("CircleShape2D_uoiy3")
@@ -109,21 +112,33 @@ texture = ExtResource("3_rlrpw")
 
 [node name="RayCast2D" type="RayCast2D" parent="Turret"]
 position = Vector2(112, -25)
-target_position = Vector2(560, -3)
+target_position = Vector2(737, -3)
 
 [node name="Line2D" type="Line2D" parent="Turret/RayCast2D"]
-points = PackedVector2Array(0, 0, 559, -3)
+points = PackedVector2Array(0, 0)
 width = 1.0
 default_color = Color(0.662025, 0.142758, 0.0625824, 1)
 
 [node name="RayCast2D2" type="RayCast2D" parent="Turret"]
 position = Vector2(112, 30)
-target_position = Vector2(560, -3)
+target_position = Vector2(737, -2)
 
 [node name="Line2D" type="Line2D" parent="Turret/RayCast2D2"]
 points = PackedVector2Array(0, 0)
 width = 1.0
 default_color = Color(0.662025, 0.142758, 0.0625824, 1)
+
+[node name="Flash" type="Sprite2D" parent="Turret"]
+position = Vector2(189, -27)
+rotation = 1.5708
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_tuj5u")
+
+[node name="Flash2" type="Sprite2D" parent="Turret"]
+position = Vector2(188, 26)
+rotation = 1.5708
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_tuj5u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

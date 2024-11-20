@@ -20,7 +20,7 @@ func hit():
  
 func _process(_delta: float) -> void:
 	look_at(Globals.player_pos)
-	if can_laser:
+	if can_laser and player_nearby:
 		var marker_node = $LaserSpawnPositions.get_child(right_gun_use)
 		right_gun_use = not right_gun_use
 		var pos: Vector2 = marker_node.global_position

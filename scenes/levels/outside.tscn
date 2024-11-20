@@ -133,7 +133,7 @@ curve = SubResource("Curve2D_oeati")
 
 [node name="Car" parent="CarPath" index="0" instance=ExtResource("16_e1q62")]
 position = Vector2(961, 1477)
-rotation = 1.2828
+rotation = 1.28279
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]

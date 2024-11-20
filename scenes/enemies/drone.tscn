@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://by3v6fnjf5qqm"]
+[gd_scene load_steps=11 format=3 uid="uid://2cwxpgon1pny"]
 
 [ext_resource type="Texture2D" uid="uid://bnjk46a5v25ds" path="res://graphics/enemies/drone.png" id="1_3enxk"]
-[ext_resource type="Shader" path="res://scenes/enemies/drone/drone.gdshader" id="1_rbiyy"]
+[ext_resource type="Shader" path="res://scenes/enemies/drone.gdshader" id="1_rbiyy"]
 [ext_resource type="Texture2D" uid="uid://bxd1ew8fot75h" path="res://graphics/explosions/explosion_3.png" id="2_3pw1x"]
 
 [sub_resource type="GDScript" id="GDScript_fbpnf"]
@@ -73,6 +73,45 @@ radius = 75.0267
 [sub_resource type="CircleShape2D" id="CircleShape2D_mg1v3"]
 radius = 1421.0
 
+[sub_resource type="Animation" id="Animation_m7hee"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Explosion:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [26]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Explosion:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_gwuia"]
 resource_name = "explosion"
 length = 1.6
@@ -140,45 +179,6 @@ tracks/4/keys = {
 "args": [],
 "method": &"stop_movement"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_m7hee"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Explosion:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [26]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Explosion:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fjnr8"]
