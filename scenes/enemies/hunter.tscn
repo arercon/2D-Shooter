@@ -94,10 +94,32 @@ metadata/_local_pose_override_enabled_ = true
 position = Vector2(45, -37)
 texture = ExtResource("4_4yepo")
 
+[node name="FrontLeftLeg" type="Bone2D" parent="Skeleton2D/Torso2"]
+position = Vector2(-25, -54)
+
+[node name="LegFrontInner" type="Sprite2D" parent="Skeleton2D/Torso2/FrontLeftLeg"]
+position = Vector2(-15, -42)
+rotation = 0.168849
+scale = Vector2(-1, 1)
+texture = ExtResource("3_5la7h")
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Torso2/FrontLeftLeg"]
+position = Vector2(-32, -72)
+auto_calculate_length_and_angle = false
+length = 117.967
+bone_angle = -123.904
+
+[node name="LegFrontOuter" type="Sprite2D" parent="Skeleton2D/Torso2/FrontLeftLeg/Bone2D"]
+position = Vector2(-44, -36)
+scale = Vector2(-1, 1)
+texture = ExtResource("4_4yepo")
+
 [node name="Targets" type="Node2D" parent="."]
 
 [node name="FrontRight" type="Marker2D" parent="Targets"]
 position = Vector2(144, -167)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
 [connection signal="body_exited" from="NoticeArea" to="." method="_on_notice_area_body_exited"]
