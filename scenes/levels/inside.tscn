@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://d1n3b2rrnh0ik"]
+[gd_scene load_steps=36 format=4 uid="uid://d1n3b2rrnh0ik"]
 
 [ext_resource type="PackedScene" uid="uid://chtxs3v3yk6un" path="res://scenes/levels/level.tscn" id="1_msk72"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_65bnb"]
@@ -31,6 +31,9 @@
 [ext_resource type="Texture2D" uid="uid://bjdxcqsqhb0s5" path="res://graphics/objects/infestation/small_3.png" id="22_8ial5"]
 [ext_resource type="Texture2D" uid="uid://cjh2tqyvbnjbe" path="res://graphics/objects/infestation/spikes.png" id="23_1js67"]
 [ext_resource type="Texture2D" uid="uid://fgiaomejb41x" path="res://graphics/objects/corner.png" id="24_k36tu"]
+[ext_resource type="PackedScene" uid="uid://cec4fvtehjah0" path="res://scenes/enemies/bug.tscn" id="31_vtebx"]
+[ext_resource type="PackedScene" uid="uid://2cwxpgon1pny" path="res://scenes/enemies/drone.tscn" id="32_i4s0w"]
+[ext_resource type="PackedScene" uid="uid://b5b1rtwx7k03j" path="res://scenes/enemies/scout.tscn" id="33_k3c20"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uo1g3"]
 size = Vector2(1118, 560.5)
@@ -525,6 +528,54 @@ shape = SubResource("RectangleShape2D_uo1g3")
 [node name="Items" parent="." index="6"]
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
+
+[node name="Bug" parent="Enemies" index="0" instance=ExtResource("31_vtebx")]
+position = Vector2(1012, 1218)
+
+[node name="Bug2" parent="Enemies" index="1" instance=ExtResource("31_vtebx")]
+position = Vector2(-2648, 1107)
+
+[node name="Bug10" parent="Enemies" index="2" instance=ExtResource("31_vtebx")]
+position = Vector2(1348, 1485)
+
+[node name="Bug12" parent="Enemies" index="3" instance=ExtResource("31_vtebx")]
+position = Vector2(1406, -4085)
+
+[node name="Bug14" parent="Enemies" index="4" instance=ExtResource("31_vtebx")]
+position = Vector2(-970, 1277)
+
+[node name="Bug13" parent="Enemies" index="5" instance=ExtResource("31_vtebx")]
+position = Vector2(1613, -3820)
+
+[node name="Bug3" parent="Enemies" index="6" instance=ExtResource("31_vtebx")]
+position = Vector2(-2658, 543)
+
+[node name="Bug4" parent="Enemies" index="7" instance=ExtResource("31_vtebx")]
+position = Vector2(2960, 695)
+
+[node name="Bug5" parent="Enemies" index="8" instance=ExtResource("31_vtebx")]
+position = Vector2(2136, 453)
+
+[node name="Bug6" parent="Enemies" index="9" instance=ExtResource("31_vtebx")]
+position = Vector2(2272, 1442)
+
+[node name="Bug7" parent="Enemies" index="10" instance=ExtResource("31_vtebx")]
+position = Vector2(2452, -692)
+
+[node name="Bug8" parent="Enemies" index="11" instance=ExtResource("31_vtebx")]
+position = Vector2(-964, -4834)
+
+[node name="Bug9" parent="Enemies" index="12" instance=ExtResource("31_vtebx")]
+position = Vector2(-1851, -7031)
+
+[node name="Drone" parent="Enemies" index="13" instance=ExtResource("32_i4s0w")]
+position = Vector2(66, -1284)
+
+[node name="Scout" parent="Enemies" index="14" instance=ExtResource("33_k3c20")]
+position = Vector2(-2178, -2839)
+
+[node name="Scout2" parent="Enemies" index="15" instance=ExtResource("33_k3c20")]
+position = Vector2(-2636, -5585)
 
 [node name="Player" parent="." index="9"]
 position = Vector2(217, 2965)

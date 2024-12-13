@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://bp506d5xvaypd"]
+[gd_scene load_steps=29 format=4 uid="uid://bp506d5xvaypd"]
 
 [ext_resource type="PackedScene" uid="uid://chtxs3v3yk6un" path="res://scenes/levels/level.tscn" id="1_1xeef"]
 [ext_resource type="Script" path="res://scenes/levels/outside.gd" id="2_eyc1q"]
@@ -19,6 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://qrpgrsdree0" path="res://graphics/objects/infestation/large.png" id="16_fqoq7"]
 [ext_resource type="Texture2D" uid="uid://c67ain24h38vk" path="res://graphics/objects/infestation/line.png" id="17_l4vt4"]
 [ext_resource type="PackedScene" uid="uid://iv3seb1op5bf" path="res://scenes/container/crate.tscn" id="18_3qfav"]
+[ext_resource type="PackedScene" uid="uid://2cwxpgon1pny" path="res://scenes/enemies/drone.tscn" id="19_853tq"]
+[ext_resource type="PackedScene" uid="uid://cns0xdeqw1xnk" path="res://scenes/enemies/hunter.tscn" id="19_ecnbl"]
+[ext_resource type="PackedScene" uid="uid://b5b1rtwx7k03j" path="res://scenes/enemies/scout.tscn" id="20_eaa41"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ip2ed"]
 texture = ExtResource("6_yttnd")
@@ -62,8 +65,8 @@ _data = {
 point_count = 11
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_c14wf"]
-vertices = PackedVector2Array(3578.72, 2800.88, 2898.85, 2810.25, 2880.1, 2670.73, 3580.28, 2661.8, 4350.93, 1496.73, 4348.1, 3570.15, 3831.3, 3019.48, 3818.66, 2415.02, -1117.91, 376.742, -1623.22, 878.508, -1618.35, -70.3672, -1312.31, 27.2422, 3185.95, 3590.9, 3179.98, 3401.72, 2026.88, 3061.49, 2636.84, 3404.32, 3709.81, 1494.23, 3710.85, 1573.3, 3042.98, 2415.02, 3042.98, 1998.02, 3384.1, 1561.81, 5505.17, 4728.16, -1600.5, 4744.85, -1590.12, 4619.07, 71.5, 3834.51, 2016.55, 3818.45, 2631.18, 3842.61, 2412.7, 2272, 2806.23, 2265.98, 2796.49, 2625.58, 2352.63, 2637.61, 2412.96, -65.5703, 3128.44, -70.5469, 3123.49, 134.547, 3047.02, 867.719, 2654.39, 310.711, 2014.41, 3580.24, 4614.49, 1452.87, 4613.46, 1314.44, 5458.98, 1320.44, 5001.5, 1445.97, 5479.58, 1491.93, 4616.01, 3823.36, 4615.01, 1800.73, 5476.32, 1810.72, 3578.19, 144.602, 3591.8, 861.719, 3047.02, 1104.82, 2644.36, 1998.02, 3960.48, -1501.59, 3963.37, -1624.32, 5520.86, -1628.83, 5514.74, 852.023, 5455.12, 852.023, 4357.37, 849.898, 3824.98, -323.93, 2656.05, -324.922, 2657.05, -1232.88, 3928.32, 1238.02, 3824.98, 1238.02, 2031.16, 1104.02, 315.188, 3574.23, 309.18, 3440.02, 731.82, 2221.21, 5458.98, 1101.93, 5514.12, 1100.13, 2341.25, 2785.48, 2255.23, 2781.74, 2262.25, 1104.02, 2419.01, 2091.91, 2417.98, 326.031, 3376.12, 1110.84, -1313.3, -62.6094, -662.453, 55.9766, 2199.9, 59.0469, 4343.24, 1227.26, 4293.39, 1229.96, 4261.96, 1282.98, 3961.71, 1291.06, 2201.9, -1513.55, 2414.08, -1237.1, 68.5391, 3440.02)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(6, 5, 12, 13), PackedInt32Array(14, 6, 13, 15), PackedInt32Array(16, 4, 7, 17), PackedInt32Array(17, 7, 18, 19, 20), PackedInt32Array(21, 22, 23, 24, 25, 26), PackedInt32Array(27, 28, 29, 30), PackedInt32Array(31, 32, 33, 34, 35), PackedInt32Array(15, 26, 25, 36, 14), PackedInt32Array(37, 38, 39, 40), PackedInt32Array(41, 40, 39), PackedInt32Array(42, 43, 44, 21), PackedInt32Array(45, 46, 34, 33), PackedInt32Array(47, 19, 48, 35, 34), PackedInt32Array(49, 50, 51, 52, 53, 54), PackedInt32Array(55, 56, 57, 49), PackedInt32Array(58, 59, 55), PackedInt32Array(60, 14, 36, 61, 62, 63), PackedInt32Array(39, 64, 65, 41), PackedInt32Array(30, 66, 67, 68), PackedInt32Array(69, 27, 30, 68, 70), PackedInt32Array(47, 71, 20, 19), PackedInt32Array(10, 72, 11), PackedInt32Array(8, 11, 73, 63), PackedInt32Array(63, 73, 74, 70, 60), PackedInt32Array(54, 75, 76, 55, 49), PackedInt32Array(70, 68, 60), PackedInt32Array(31, 35, 70, 74), PackedInt32Array(77, 78, 58, 55, 76), PackedInt32Array(79, 49, 57, 80), PackedInt32Array(74, 79, 80, 31), PackedInt32Array(63, 62, 81), PackedInt32Array(23, 63, 81), PackedInt32Array(23, 81, 24), PackedInt32Array(21, 26, 42), PackedInt32Array(65, 21, 44, 41)])
+vertices = PackedVector2Array(3576.4, 2805.48, 2903.05, 2810.57, 2894.25, 2670.55, 3579.57, 2661.81, -1117.91, 376.742, -1623.22, 878.508, -1618.35, -70.3672, -1312.31, 27.2422, 4350.93, 1496.73, 4348.1, 3570.15, 3828.61, 3052.07, 3822.36, 2411.78, 3185.95, 3590.9, 3179.98, 3401.72, 1633.11, 3048.89, 2636.84, 3404.32, 3709.81, 1494.23, 3710.85, 1573.3, 3042.98, 2414.77, 3042.98, 1998.02, 3384.1, 1561.81, 5505.17, 4728.16, -1600.5, 4744.85, -1590.12, 4619.07, 71.5, 3834.51, 2016.55, 3818.45, 2631.18, 3842.61, 2344.48, 2636.02, 2353.45, 2802.57, 1879.04, 2799.43, 1881.05, 848.023, 2412.7, 2272, 2806.23, 2265.98, 2796.21, 2636.02, 2417.98, 326.031, 2419.01, 2091.91, 2199.9, 59.0469, 2412.96, -65.5703, 3128.44, -70.5469, 3123.49, 134.547, 3047.02, 867.719, 2654.39, 310.711, 2014.41, 3580.24, 315.188, 3574.23, 309.18, 3440.02, 4614.49, 1452.87, 4613.46, 1314.44, 5458.98, 1320.44, 5001.5, 1445.97, 5479.58, 1491.93, 4616.01, 3823.36, 4615.01, 1800.73, 5476.32, 1810.72, 3578.19, 144.602, 3591.8, 861.719, 3047.02, 1104.82, 2644.36, 1998.02, 3960.48, -1501.59, 3963.37, -1624.32, 5520.86, -1628.83, 5514.74, 852.023, 5455.12, 852.023, 4357.37, 849.898, 3824.98, -323.93, 2656.05, -324.922, 2657.05, -1232.88, 3928.32, 1238.02, 3824.98, 1238.02, 5458.98, 1101.93, 5514.12, 1100.13, 3376.12, 1110.84, -1313.3, -62.6094, 731.82, 2221.21, -662.453, 55.9766, 1629.93, 848.023, 4343.24, 1227.26, 4293.39, 1229.96, 68.5391, 3440.02, 4261.96, 1282.98, 3961.71, 1291.06, 2201.9, -1513.55, 2414.08, -1237.1)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(10, 9, 12, 13), PackedInt32Array(14, 10, 13, 15), PackedInt32Array(16, 8, 11, 17), PackedInt32Array(17, 11, 18, 19, 20), PackedInt32Array(21, 22, 23, 24, 25, 26), PackedInt32Array(27, 28, 29, 30), PackedInt32Array(31, 32, 33, 27), PackedInt32Array(34, 35, 31, 27, 30, 36, 37), PackedInt32Array(37, 38, 39, 40, 41), PackedInt32Array(15, 26, 25, 42), PackedInt32Array(14, 15, 42, 43, 44), PackedInt32Array(45, 46, 47, 48), PackedInt32Array(49, 48, 47), PackedInt32Array(50, 51, 52, 21), PackedInt32Array(53, 54, 40, 39), PackedInt32Array(55, 19, 56, 41, 40), PackedInt32Array(57, 58, 59, 60, 61, 62), PackedInt32Array(63, 64, 65, 57), PackedInt32Array(66, 67, 63), PackedInt32Array(47, 68, 69, 49), PackedInt32Array(55, 70, 20, 19), PackedInt32Array(6, 71, 7), PackedInt32Array(72, 4, 7, 73, 74), PackedInt32Array(62, 75, 76, 63, 57), PackedInt32Array(37, 41, 34), PackedInt32Array(74, 14, 44, 77, 72), PackedInt32Array(78, 79, 66, 63, 76), PackedInt32Array(80, 57, 65, 81), PackedInt32Array(36, 80, 81, 37), PackedInt32Array(73, 36, 30, 74), PackedInt32Array(23, 72, 77), PackedInt32Array(23, 77, 24), PackedInt32Array(21, 26, 50), PackedInt32Array(69, 21, 52, 49)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1682, -136, -1250, -125, -1249, -34, -661, -8, 2136, -5, 2138, -1568, 2134, -1683, 5585, -1693, 5569, 4792, -1670, 4809, -1652, 4591, 642, 2222, -1118, 467, -1688, 1033)])
 border_size = 10.0
 agent_radius = 63.98
@@ -71,11 +74,16 @@ agent_radius = 63.98
 [node name="Outside" instance=ExtResource("1_1xeef")]
 script = ExtResource("2_eyc1q")
 
+[node name="Decals" parent="." index="0"]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
 [node name="Gate" parent="." index="1" instance=ExtResource("14_e76r0")]
 z_index = 1
 position = Vector2(577, -792)
 
 [node name="Ground" parent="." index="2"]
+metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
@@ -109,7 +117,7 @@ tile_map_data = PackedByteArray("AAD8////AAABAAEAAAD7////AAABAAEAAAD6////AAABAAE
 tile_set = SubResource("TileSet_ujfu4")
 
 [node name="Walls" type="TileMapLayer" parent="Ground" index="6"]
-tile_map_data = PackedByteArray("AAD8////AAABAAAAAAAGAP//AAABAAIAAAAHAP//AAABAAAAAAAIAP//AAABAAAAAAAJAP//AAACAAEAAAAGAP3/AAAAAAIAAAAGAP7/AAAAAAIAAAAJAAAAAAAAAAIAAAAJAAEAAAAAAAIAAAAJAAIAAAAAAAIAAAAGAAEAAAAAAAIAAAAGAAIAAAAAAAIAAAAGAAMAAAAAAAIAAAAGAAQAAAAAAAIAAAAGAAUAAAABAAIAAAAHAAUAAAACAAEAAAAHAAYAAAACAAEAADALAAYAAAAAAAIAAAALAAcAAAAAAAIAAAALAAgAAAAAAAIAAAALAAkAAAACAAIAAAAHAAkAAAAAAAIAAGAIAAkAAAAAAAIAAGAJAAkAAAAAAAIAAGAKAAkAAAAAAAIAAGAIAAYAAAAAAAIAAGAJAAYAAAACAAEAAAALAAUAAAAAAAIAADAJAAcAAAACAAIAAAAFAAcAAAABAAIAAAAGAAcAAAAAAAIAAGAHAAcAAAAAAAIAAGAIAAcAAAAAAAIAAGAFAAMAAAAAAAIAAAAFAAQAAAAAAAIAAAAFAAUAAAAAAAIAAAAFAAYAAAAAAAIAAAALAAQAAAAAAAIAAAALAAMAAAAAAAIAADALAAIAAAABAAEAAAAMAAIAAAAAAAIAAGANAAIAAAAAAAIAAGAIAAIAAAAAAAIAAGAJAAMAAAABAAIAAAAOAAwAAAACAAIAAAADAAwAAAAAAAIAAGAEAAwAAAAAAAIAAGAFAAwAAAAAAAIAAGAGAAwAAAAAAAIAAGAHAAwAAAAAAAIAAGAIAAwAAAAAAAIAAGAJAAwAAAAAAAIAAGAKAAwAAAAAAAIAAGALAAwAAAAAAAIAAGAMAAwAAAAAAAIAAGANAAwAAAAAAAIAAGAOAPv/AAACAAEAAAAOAPz/AAAAAAIAADAOAP3/AAAAAAIAADAOAP7/AAAAAAIAADAOAP//AAAAAAIAADAOAAAAAAAAAAIAADAOAAEAAAAAAAIAADAOAAIAAAAAAAIAADAOAAMAAAAAAAIAADAOAAQAAAAAAAIAADAOAAUAAAAAAAIAADAOAAYAAAAAAAIAADAOAAcAAAAAAAIAADAOAAgAAAAAAAIAADAOAAkAAAAAAAIAADAOAAoAAAAAAAIAADAOAAsAAAAAAAIAADAKAPv/AAAAAAIAAFALAPv/AAAAAAIAAFAMAPv/AAAAAAIAAFANAPv/AAAAAAIAAFAAAAkAAAABAAIAAAABAAkAAAAAAAIAAGACAAkAAAAAAAIAAGADAAkAAAAAAAIAAGAEAAkAAAAAAAIAAGD7/wwAAAABAAIAAAD8/wwAAAAAAAIAAGD9/wwAAAAAAAIAAGD+/wwAAAAAAAIAAGD7/wsAAAAAAAEAAAD//wwAAAAAAAIAAFAAAAwAAAAAAAIAAFABAAwAAAAAAAIAAFACAAwAAAAAAAIAAFD7////AAABAAEAAAD7/wAAAAAAAAIAAAD7/wEAAAAAAAIAAAD7/wIAAAAAAAIAAAA=")
+tile_map_data = PackedByteArray("AAD8////AAABAAAAAAAGAP//AAABAAIAAAAHAP//AAABAAAAAAAIAP//AAABAAAAAAAJAP//AAACAAEAAAAGAP3/AAAAAAIAAAAGAP7/AAAAAAIAAAAJAAAAAAAAAAIAAAAJAAEAAAAAAAIAAAAJAAIAAAAAAAIAAAAGAAEAAAAAAAEAAAAGAAIAAAAAAAIAAAAGAAMAAAAAAAIAAAAGAAQAAAAAAAIAAAAGAAUAAAABAAIAAAAHAAUAAAACAAEAAAAHAAYAAAACAAEAADALAAYAAAAAAAIAAAALAAcAAAAAAAIAAAALAAgAAAAAAAIAAAALAAkAAAACAAIAAAAHAAkAAAAAAAIAAGAIAAkAAAAAAAIAAGAJAAkAAAAAAAIAAGAKAAkAAAAAAAIAAGAIAAYAAAAAAAIAAGAJAAYAAAACAAEAAAALAAUAAAAAAAIAADAJAAcAAAACAAIAAAAGAAcAAAABAAAAAAAHAAcAAAABAAAAAAAIAAcAAAABAAAAAAALAAQAAAAAAAIAAAALAAMAAAAAAAIAADALAAIAAAABAAEAAAAMAAIAAAAAAAIAAGANAAIAAAAAAAIAAGAIAAIAAAAAAAIAAGAJAAMAAAABAAIAAAAOAAwAAAACAAIAAAADAAwAAAAAAAIAAGAEAAwAAAAAAAIAAGAFAAwAAAAAAAIAAGAGAAwAAAAAAAIAAGAHAAwAAAAAAAIAAGAIAAwAAAAAAAIAAGAJAAwAAAAAAAIAAGAKAAwAAAAAAAIAAGALAAwAAAAAAAIAAGAMAAwAAAAAAAIAAGANAAwAAAAAAAIAAGAOAPv/AAACAAEAAAAOAPz/AAAAAAIAADAOAP3/AAAAAAIAADAOAP7/AAAAAAIAADAOAP//AAAAAAIAADAOAAAAAAAAAAIAADAOAAEAAAAAAAIAADAOAAIAAAAAAAIAADAOAAMAAAAAAAIAADAOAAQAAAAAAAIAADAOAAUAAAAAAAIAADAOAAYAAAAAAAIAADAOAAcAAAAAAAIAADAOAAgAAAAAAAIAADAOAAkAAAAAAAIAADAOAAoAAAAAAAIAADAOAAsAAAAAAAIAADAKAPv/AAAAAAIAAFALAPv/AAAAAAIAAFAMAPv/AAAAAAIAAFANAPv/AAAAAAIAAFAAAAkAAAABAAIAAAABAAkAAAAAAAIAAGACAAkAAAAAAAIAAGADAAkAAAAAAAIAAGAEAAkAAAAAAAIAAGD7/wwAAAABAAIAAAD8/wwAAAAAAAIAAGD9/wwAAAAAAAIAAGD+/wwAAAAAAAIAAGD7/wsAAAAAAAEAAAD//wwAAAAAAAIAAFAAAAwAAAAAAAIAAFABAAwAAAAAAAIAAFACAAwAAAAAAAIAAFD7////AAABAAEAAAD7/wAAAAAAAAIAAAD7/wEAAAAAAAIAAAD7/wIAAAAAAAIAAAAEAAYAAAAAAAIAAAAEAAUAAAAAAAIAAAAEAAQAAAAAAAIAAAAEAAMAAAAAAAIAAAAEAAIAAAAAAAEAAAAEAAcAAAABAAIAAAAFAAcAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_h52hj")
 
 [node name="Moss2" type="Sprite2D" parent="Ground" index="7"]
@@ -224,6 +232,45 @@ rotation = 3.13052
 position = Vector2(-2680, 2453)
 rotation = 5.43168
 
+[node name="Infestation" parent="." index="3"]
+metadata/_edit_lock_ = true
+
+[node name="Items" parent="." index="4"]
+metadata/_edit_lock_ = true
+
+[node name="Hunter" parent="Enemies" index="0" instance=ExtResource("19_ecnbl")]
+position = Vector2(2194, 2463)
+
+[node name="Scout" parent="Enemies" index="1" instance=ExtResource("20_eaa41")]
+position = Vector2(3236, 1743)
+
+[node name="Scout2" parent="Enemies" index="2" instance=ExtResource("20_eaa41")]
+position = Vector2(5086, 2705)
+
+[node name="Scout3" parent="Enemies" index="3" instance=ExtResource("20_eaa41")]
+position = Vector2(3566, 3304)
+
+[node name="Scout4" parent="Enemies" index="4" instance=ExtResource("20_eaa41")]
+position = Vector2(-464, 4023)
+
+[node name="Scout5" parent="Enemies" index="5" instance=ExtResource("20_eaa41")]
+position = Vector2(-2327, 2921)
+
+[node name="Scout6" parent="Enemies" index="6" instance=ExtResource("20_eaa41")]
+position = Vector2(-85, 4009)
+
+[node name="Scout7" parent="Enemies" index="7" instance=ExtResource("20_eaa41")]
+position = Vector2(-797, 3993)
+
+[node name="Scout8" parent="Enemies" index="8" instance=ExtResource("20_eaa41")]
+position = Vector2(-715, 2656)
+
+[node name="Drone" parent="Enemies" index="9" instance=ExtResource("19_853tq")]
+position = Vector2(-1325, 246)
+
+[node name="Drone2" parent="Enemies" index="10" instance=ExtResource("19_853tq")]
+position = Vector2(1969, 3312)
+
 [node name="Player" parent="." index="7"]
 position = Vector2(669, 206)
 
@@ -236,6 +283,8 @@ rotation = 1.28279
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="10"]
 navigation_polygon = SubResource("NavigationPolygon_c14wf")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Wall" type="StaticBody2D" parent="NavigationRegion2D" index="0"]
 position = Vector2(2546, 480)
@@ -245,7 +294,7 @@ collision_mask = 3
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NavigationRegion2D/Wall" index="0"]
 position = Vector2(-9.50001, 805)
 scale = Vector2(5.35, 89.7)
-polygon = PackedVector2Array(-10.1869, -10.0223, 10, -10.1003, 8.13086, 8.66221, 82.7103, 8.66221, 82.7103, 13.311, 227.944, 13.311, 229.813, 18.6399, -83.271, 19.0747, -82.5234, -1.30435, -63.271, -1.30435, -64.5794, 17.369, -34.486, 17.447, -34.486, 17.6812, -25.8878, 17.8038, -23.271, 15.7748, 52.6168, 15.6522, 57.2897, 17.7258, 206.636, 17.6031, 207.196, 14.6265, 60.6542, 14.738, 62.7103, 10.2118, -10.7477, 10.2787, -10, 9.0078)
+polygon = PackedVector2Array(-10.1869, -10.0223, 10, -10.1003, 8.13086, 8.66221, 82.7103, 8.66221, 82.7103, 13.311, 228.505, 13.2776, 229.439, 18.9855, -156.916, 18.9521, -157.477, -4.15831, -134.486, -4.15831, -134.86, 17.592, -21.5888, 17.6366, -23.271, 15.7748, 55.2337, 15.7748, 57.2897, 17.7258, 206.075, 17.6589, 207.196, 14.6265, 60.6542, 14.738, 62.7103, 10.2118, -10.7477, 10.2787, -10, 9.0078)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="NavigationRegion2D/Wall" index="1"]
 polygon = PackedVector2Array(-410, -2058, 1352, -2046, 1355, -2173, 3041, -2179, 3041, 4324, -4241, 4341, -4241, 3957, -4352, 3944, -4362, 4438, 3162, 4455, 3179, -2295, 1359, -2302, -413, -2302)
