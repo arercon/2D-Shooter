@@ -39,11 +39,11 @@ func _on_navigation_timer_timeout() -> void:
 		$NavigationAgent2D.target_position = Globals.player_pos
 
 
-func _on_attack_area_body_entered(body: Node2D) -> void:
+func _on_attack_area_body_entered(_body: Node2D) -> void:
 	player_near = true
 	$AnimationPlayer.play("attack")
 
-func _on_attack_area_body_exited(body: Node2D) -> void:
+func _on_attack_area_body_exited(_body: Node2D) -> void:
 	player_near = false
 	
 func attack():

@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://2cwxpgon1pny"]
+[gd_scene load_steps=13 format=3 uid="uid://2cwxpgon1pny"]
 
 [ext_resource type="Texture2D" uid="uid://bnjk46a5v25ds" path="res://graphics/enemies/drone.png" id="1_3enxk"]
 [ext_resource type="Shader" path="res://scenes/enemies/drone.gdshader" id="1_rbiyy"]
 [ext_resource type="Texture2D" uid="uid://bxd1ew8fot75h" path="res://graphics/explosions/explosion_3.png" id="2_3pw1x"]
+[ext_resource type="AudioStream" uid="uid://d01gqs2er0w2v" path="res://audio/solid_impact.ogg" id="4_lxjq5"]
+[ext_resource type="AudioStream" uid="uid://dv6ujym3h16h" path="res://audio/explosion.wav" id="4_p4435"]
 
 [sub_resource type="GDScript" id="GDScript_fbpnf"]
 script/source = "extends CharacterBody2D
@@ -44,6 +46,7 @@ func hit():
 		vulnerable = false
 		$Sprite2D.material.set_shader_parameter(\"progress\",1)
 		$HitTimer.start()
+		$Sounds/HitSound.play()
 	if health <= 0:
 		$AnimationPlayer.play(\"explosion\")
 		explosion_active = true
@@ -180,6 +183,21 @@ tracks/4/keys = {
 "method": &"stop_movement"
 }]
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sounds/ExplosionSound")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_p4435")
+}],
+"times": PackedFloat32Array(0.2)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fjnr8"]
 _data = {
@@ -219,6 +237,14 @@ frame = 26
 libraries = {
 "": SubResource("AnimationLibrary_fjnr8")
 }
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("4_lxjq5")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="Sounds"]
+volume_db = 20.0
 
 [connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
 [connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]

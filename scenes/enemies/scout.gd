@@ -15,6 +15,7 @@ func hit():
 		can_damage = false
 		$Timers/DamageTimer.start()
 		$Sprite2D.material.set_shader_parameter("progress",1)
+		$HitSound.play()
 		if health <= 0:
 			queue_free()
  

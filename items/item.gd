@@ -32,4 +32,7 @@ func _on_body_entered(_body) -> void:
 		Globals.bullet_amount += 5
 	if type == 'grenade':
 		Globals.grenade_amount += 1
+	$AudioStreamPlayer2D.play()
+	$Sprite2D.hide()
+	await $AudioStreamPlayer2D.finished
 	queue_free()
