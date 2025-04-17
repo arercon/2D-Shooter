@@ -1,5 +1,5 @@
 ﻿# 2D-Shooter
-A 2d testproject as preparation for next gamejam.
+A project i started in preperation for the next gamejam.
 
 
 <b>Controls</b> <br>
